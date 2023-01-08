@@ -51,3 +51,25 @@ mysql> desc AddressBook;
 | email       | varchar(100) | NO   |     | NULL    |       |
 +-------------+--------------+------+-----+---------+-------+
 8 rows in set (0.00 sec)
+
+===========================================================
+-- UC3  Inserting new contacts to addressbook table
+===========================================================
+mysql> insert into AddressBook (firstname, lastname, address,city, state, zip,phoneNumber,email) values
+    -> ('Pallavi', 'Chedge','Lakewood','Nagpur','Maharashtra', 346789, 8970065743,'pc@gmail.com'),
+    -> ('Rashmi', 'Agrawal','Iriscourt','Mumbai','Maharashtra', 804198, 9805643789,'rashmi@gmail.com'),
+    -> ('Rahul', 'Punewar','NovaApartment','Chennai','TamilNadu', 678907, 7777856749,'rp@gmail.com'),
+    -> ('Shashwat', 'Patel','DattaApartment','Pune','Maharashtra', 341009, 9880565434,'sp@gmail.com');
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from AddressBook;
++-----------+----------+----------------+---------+-------------+--------+-------------+------------------+
+| firstName | lastName | address        | city    | state       | zip    | phoneNumber | email            |
++-----------+----------+----------------+---------+-------------+--------+-------------+------------------+
+| Pallavi   | Chedge   | Lakewood       | Nagpur  | Maharashtra | 346789 |  8970065743 | pc@gmail.com     |
+| Rashmi    | Agrawal  | Iriscourt      | Mumbai  | Maharashtra | 804198 |  9805643789 | rashmi@gmail.com |
+| Rahul     | Punewar  | NovaApartment  | Chennai | TamilNadu   | 678907 |  7777856749 | rp@gmail.com     |
+| Shashwat  | Patel    | DattaApartment | Pune    | Maharashtra | 341009 |  9880565434 | sp@gmail.com     |
++-----------+----------+----------------+---------+-------------+--------+-------------+------------------+
+4 rows in set (0.00 sec)

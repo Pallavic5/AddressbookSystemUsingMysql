@@ -1,4 +1,3 @@
-
 /*UC 1 Ability to create a AddressBook Service Database - Use SQL client to create Database and Database records*/
 
 CREATE DATABASE `addressbookservice`;  /*create database*/
@@ -17,3 +16,20 @@ CREATE TABLE `addressbook` (
   `phoneNumber` double NOT NULL,
   `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+/*UC 3 Ability to insert new Contacts to Address Book*/
+
+INSERT INTO `addressbookservice`.`addressbook`
+(`firstName`,
+`lastName`,
+`address`,
+`city`,
+`state`,
+`zip`,
+`phoneNumber`,
+`email`)
+VALUES
+('Pallavi', 'Chedge','Lakewood','Nagpur','Maharashtra', 346789, 8970065743,'pc@gmail.com'),
+ ('Rashmi', 'Agrawal','Iriscourt','Mumbai','Maharashtra', 804198, 9805643789,'rashmi@gmail.com'),
+ ('Rahul', 'Punewar','NovaApartment','Chennai','TamilNadu', 678907, 7777856749,'rp@gmail.com'),
+ ('Shashwat', 'Patel','DattaApartment','Pune','Maharashtra', 341009, 9880565434,'sp@gmail.com');

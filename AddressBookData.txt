@@ -1,0 +1,25 @@
+-- AddressBook Service
+===========================================================
+-- UC1 Ability to create a Address Book Service DataBase
+===========================================================
+
+mysql> create database addressbookservice;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| addressbookservice |
+| bridgelabz         |
+| employee           |
+| information_schema |
+| mysql              |
+| payroll_service    |
+| performance_schema |
+| sys                |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use addressbookservice;
+Database changed

@@ -51,3 +51,10 @@ select count(firstname) from AddressBook where city = 'Mumbai';
 select count(firstname) from AddressBook where city = 'Nagpur';
 select count(firstname) from AddressBook where city = 'Pune';
 select count(firstname) from AddressBook where state='TamilNadu';
+
+/*UC 8 Ability to retrieve entries sorted alphabetically by Person’s name for a given city */
+ insert into AddressBook (firstname, lastname, address,city, state, zip,phoneNumber,email) values
+ ('Pallavi','Chedge','Lakewood','Nagpur','Maharashtra',600392,8907675123,'pc@gmail.com'),
+ ('Ashwini','Kapse','BajajNagar','Surat','Gujarat',689765,7895644321,'ashwini@gmail.com');
+ select * from AddressBook;
+ select firstname,city from AddressBook order by city;

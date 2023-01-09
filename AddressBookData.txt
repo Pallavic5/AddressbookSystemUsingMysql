@@ -170,3 +170,36 @@ mysql> select count(firstname) from AddressBook where state='TamilNadu';
 |                1 |
 +------------------+
 1 row in set (0.00 sec)
+
+=======================================================================
+-- UC 8 Ability to retrieve entries sorted alphabetically by Person’s name for a given city 
+=======================================================================
+mysql> insert into AddressBook (firstname, lastname, address,city, state, zip,phoneNumber,email) values
+    -> ('Pallavi','Chedge','Lakewood','Nagpur','Maharashtra',600392,8907675123,'pc@gmail.com'),
+    -> ('Ashwini','Kapse','BajajNagar','Surat','Gujarat',689765,7895644321,'ashwini@gmail.com');
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from AddressBook;
++-----------+----------+----------------+---------+-------------+--------+-------------+-------------------+
+| firstName | lastName | address        | city    | state       | zip    | phoneNumber | email             |
++-----------+----------+----------------+---------+-------------+--------+-------------+-------------------+
+| Rashmi    | Agrawal  | Iriscourt      | Mumbai  | Maharashtra | 804198 |  9805643789 | rashmi@gmail.com  |
+| Rahul     | Punewar  | NovaApartment  | Chennai | TamilNadu   | 678907 |  7890065432 | rp@gmail.com      |
+| Shashwat  | Agrawal  | DattaApartment | Pune    | Maharashtra | 341009 |  9880565434 | sp@gmail.com      |
+| Pallavi   | Chedge   | Lakewood       | Nagpur  | Maharashtra | 600392 |  8907675123 | pc@gmail.com      |
+| Ashwini   | Kapse    | BajajNagar     | Surat   | Gujarat     | 689765 |  7895644321 | ashwini@gmail.com |
++-----------+----------+----------------+---------+-------------+--------+-------------+-------------------+
+5 rows in set (0.00 sec)
+
+mysql>  select firstname,city from AddressBook order by city;
++-----------+---------+
+| firstname | city    |
++-----------+---------+
+| Rahul     | Chennai |
+| Rashmi    | Mumbai  |
+| Pallavi   | Nagpur  |
+| Shashwat  | Pune    |
+| Ashwini   | Surat   |
++-----------+---------+
+5 rows in set (0.01 sec)

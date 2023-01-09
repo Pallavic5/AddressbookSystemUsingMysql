@@ -19,17 +19,8 @@ CREATE TABLE `addressbook` (
 
 /*UC 3 Ability to insert new Contacts to Address Book*/
 
-INSERT INTO `addressbookservice`.`addressbook`
-(`firstName`,
-`lastName`,
-`address`,
-`city`,
-`state`,
-`zip`,
-`phoneNumber`,
-`email`)
-VALUES
-('Pallavi', 'Chedge','Lakewood','Nagpur','Maharashtra', 346789, 8970065743,'pc@gmail.com'),
+INSERT INTO AddressBook (firstname, lastname, address,city, state, zip,phoneNumber,email) VALUES
+ ('Pallavi', 'Chedge','Lakewood','Nagpur','Maharashtra', 346789, 8970065743,'pc@gmail.com'),
  ('Rashmi', 'Agrawal','Iriscourt','Mumbai','Maharashtra', 804198, 9805643789,'rashmi@gmail.com'),
  ('Rahul', 'Punewar','NovaApartment','Chennai','TamilNadu', 678907, 7777856749,'rp@gmail.com'),
  ('Shashwat', 'Patel','DattaApartment','Pune','Maharashtra', 341009, 9880565434,'sp@gmail.com');
@@ -76,4 +67,8 @@ Type. - Here the type could Family, Friends, Profession, etc
  
  /*UC 10 Ability to get number of contact persons i.e. count by type*/
 SELECT count(firstname) FROM AddressBook WHERE contactType='Profession';
- 
+
+/*UC-11 Ability to add person to both Friend and Family*/
+INSERT INTO addressbook (firstName, lastName, address, city, state, zip, phoneNumber, email, addressbookName, contactType)
+VALUES ('Smarani','Sharma','LaxmiNagar','Mumbai','Maharashtra',603400,8876790543,'smarani@gmail.com','three','Family and Friend');
+SELECT * FROM addressbook;

@@ -293,3 +293,23 @@ mysql> select count(firstname) from AddressBook where contactType='Profession';
 |                2 |
 +------------------+
 1 row in set (0.00 sec)
+
+============================================================
+-- UC11 Ability to add person to both friend and family
+=============================================================
+mysql> insert into addressbook (firstName, lastName, address, city, state, zip, phoneNumber, email, addressbookName, contactType)
+    -> values('Smarani','Sharma','LaxmiNagar','Mumbai','Maharashtra',603400,8876790543,'smarani@gmail.com','three','Family and Friend');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from addressbook;
++-----------+----------+----------------+---------+-------------+--------+-------------+-------------------+-----------------+-------------------+
+| firstName | lastName | address        | city    | state       | zip    | phoneNumber | email             | addressbookName | contactType       |
++-----------+----------+----------------+---------+-------------+--------+-------------+-------------------+-----------------+-------------------+
+| Rashmi    | Agrawal  | Iriscourt      | Mumbai  | Maharashtra | 804198 |  9805643789 | rashmi@gmail.com  | two             | Profession        |
+| Rahul     | Punewar  | NovaApartment  | Chennai | TamilNadu   | 678907 |  7890065432 | rp@gmail.com      | one             | Family            |
+| Shashwat  | Agrawal  | DattaApartment | Pune    | Maharashtra | 341009 |  9880565434 | sp@gmail.com      | two             | Profession        |
+| Pallavi   | Chedge   | Lakewood       | Nagpur  | Maharashtra | 600392 |  8907675123 | pc@gmail.com      | three           | Family            |
+| Ashwini   | Kapse    | BajajNagar     | Surat   | Gujarat     | 689765 |  7895644321 | ashwini@gmail.com | two             | Friends           |
+| Smarani   | Sharma   | LaxmiNagar     | Mumbai  | Maharashtra | 603400 |  8876790543 | smarani@gmail.com | three           | Family and Friend |
++-----------+----------+----------------+---------+-------------+--------+-------------+-------------------+-----------------+-------------------+
+6 rows in set (0.00 sec)

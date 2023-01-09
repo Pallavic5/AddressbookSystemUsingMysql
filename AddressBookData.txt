@@ -203,3 +203,82 @@ mysql>  select firstname,city from AddressBook order by city;
 | Ashwini   | Surat   |
 +-----------+---------+
 5 rows in set (0.01 sec)
+
+=====================================================
+-- UC9 Identifying each addressbook with name and type.
+======================================================
+
+alter table addressbook add addressbookName varchar(25) not null;
+Query OK, 0 rows affected 
+Records: 0  Duplicates: 0  Warnings: 0
+alter table addressbook add contactType varchar(25) not null;
+Query OK, 0 rows affected 
+Records: 0  Duplicates: 0  Warnings: 0
+mysql>  desc addressbook;
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| firstName       | varchar(50)  | NO   |     | NULL    |       |
+| lastName        | varchar(50)  | NO   |     | NULL    |       |
+| address         | varchar(100) | NO   |     | NULL    |       |
+| city            | varchar(50)  | NO   |     | NULL    |       |
+| state           | varchar(50)  | NO   |     | NULL    |       |
+| zip             | int          | NO   |     | NULL    |       |
+| phoneNumber     | double       | NO   |     | NULL    |       |
+| email           | varchar(100) | NO   |     | NULL    |       |
+| addressbookName | varchar(25)  | NO   |     | NULL    |       |
+| contactType     | varchar(25)  | NO   |     | NULL    |       |
++-----------------+--------------+------+-----+---------+-------+
+10 rows in set (0.00 sec)
+
+mysql> update AddressBook set addressbookname='one', contactType='Family' where lastname='Punewar';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update AddressBook set addressbookname='two', contactType='Friends' where lastname='Kapse';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update AddressBook set addressbookname='two', contactType='Profession' where lastname='Agrawal';
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from addressbook;
++-----------+----------+----------------+---------+-------------+--------+-------------+-------------------+-----------------+-------------+
+| firstName | lastName | address        | city    | state       | zip    | phoneNumber | email             | addressbookName | contactType |
++-----------+----------+----------------+---------+-------------+--------+-------------+-------------------+-----------------+-------------+
+| Rashmi    | Agrawal  | Iriscourt      | Mumbai  | Maharashtra | 804198 |  9805643789 | rashmi@gmail.com  | two             | Profession  |
+| Rahul     | Punewar  | NovaApartment  | Chennai | TamilNadu   | 678907 |  7890065432 | rp@gmail.com      | one             | Family      |
+| Shashwat  | Agrawal  | DattaApartment | Pune    | Maharashtra | 341009 |  9880565434 | sp@gmail.com      | two             | Profession  |
+| Pallavi   | Chedge   | Lakewood       | Nagpur  | Maharashtra | 600392 |  8907675123 | pc@gmail.com      |
+     |             |
+| Ashwini   | Kapse    | BajajNagar     | Surat   | Gujarat     | 689765 |  7895644321 | ashwini@gmail.com | two             | Friends     |
++-----------+----------+----------------+---------+-------------+--------+-------------+-------------------+-----------------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from addressbook where contactType='Family';
++-----------+----------+---------------+---------+-----------+--------+-------------+--------------+-----------------+-------------+
+| firstName | lastName | address       | city    | state     | zip    | phoneNumber | email        | addressbookName | contactType |
++-----------+----------+---------------+---------+-----------+--------+-------------+--------------+-----------------+-------------+
+| Rahul     | Punewar  | NovaApartment | Chennai | TamilNadu | 678907 |  7890065432 | rp@gmail.com | one             | Family      |
++-----------+----------+---------------+---------+-----------+--------+-------------+--------------+-----------------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select * from AddressBook where contacttype='Profession';
++-----------+----------+----------------+--------+-------------+--------+-------------+------------------+-----------------+-------------+
+| firstName | lastName | address        | city   | state       | zip    | phoneNumber | email            | addressbookName | contactType |
++-----------+----------+----------------+--------+-------------+--------+-------------+------------------+-----------------+-------------+
+| Rashmi    | Agrawal  | Iriscourt      | Mumbai | Maharashtra | 804198 |  9805643789 | rashmi@gmail.com | two
+   | Profession  |
+| Shashwat  | Agrawal  | DattaApartment | Pune   | Maharashtra | 341009 |  9880565434 | sp@gmail.com     | two
+   | Profession  |
++-----------+----------+----------------+--------+-------------+--------+-------------+------------------+-----------------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from AddressBook where contacttype='Friends';
++-----------+----------+------------+-------+---------+--------+-------------+-------------------+-----------------+-------------+
+| firstName | lastName | address    | city  | state   | zip    | phoneNumber | email             | addressbookName | contactType |
++-----------+----------+------------+-------+---------+--------+-------------+-------------------+-----------------+-------------+
+| Ashwini   | Kapse    | BajajNagar | Surat | Gujarat | 689765 |  7895644321 | ashwini@gmail.com | two             | Friends     |
++-----------+----------+------------+-------+---------+--------+-------------+-------------------+-----------------+-------------+
+1 row in set (0.00 sec)

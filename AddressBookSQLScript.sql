@@ -58,3 +58,18 @@ select count(firstname) from AddressBook where state='TamilNadu';
  ('Ashwini','Kapse','BajajNagar','Surat','Gujarat',689765,7895644321,'ashwini@gmail.com');
  select * from AddressBook;
  select firstname,city from AddressBook order by city;
+ 
+ /*UC 9 Ability to identify each Address Book with name and
+Type. - Here the type could Family, Friends, Profession, etc
+- Alter Address Book to add name and type*/
+ 
+ alter table addressbook add addressbookName varchar(25) not null;
+ alter table addressbook add contactType varchar(25) not null;
+ desc addressbook;
+ update AddressBook set addressbookname='one', contactType='Family' where lastname='Punewar';
+ update AddressBook set addressbookname='two', contactType='Friends' where lastname='Kapse';
+ update AddressBook set addressbookname='two', contactType='Profession' where lastname='Agrawal';
+ select * from addressbook;
+ select * from addressbook where contactType='Family';
+ select * from AddressBook where contacttype='Profession';
+ select * from AddressBook where contacttype='Friends';

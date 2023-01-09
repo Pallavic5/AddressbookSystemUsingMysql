@@ -38,3 +38,7 @@ VALUES
 UPDATE `addressbookservice`.`addressbook` SET lastName='Agrawal' where firstname='Shashwat';
 SELECT * FROM AddressBook;
 UPDATE addressbook SET phoneNumber=7890065432 where firstname='Rahul';
+
+/*UC 5 Ability to delete a person using person's name*/
+DELETE FROM `addressbookservice`.`addressbook` WHERE lastName='Chedge';
+SELECT * FROM AddressBook;

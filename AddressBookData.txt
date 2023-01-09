@@ -106,3 +106,19 @@ mysql> select * from AddressBook;
 | Shashwat  | Agrawal  | DattaApartment | Pune    | Maharashtra | 341009 |  9880565434 | sp@gmail.com     |
 +-----------+----------+----------------+---------+-------------+--------+-------------+------------------+
 4 rows in set (0.00 sec)
+
+===========================================================
+-- UC5  Delete contact by using person's name
+===========================================================
+mysql> delete from addressBook where lastname='Chedge';
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from AddressBook;
++-----------+----------+----------------+---------+-------------+--------+-------------+------------------+
+| firstName | lastName | address        | city    | state       | zip    | phoneNumber | email            |
++-----------+----------+----------------+---------+-------------+--------+-------------+------------------+
+| Rashmi    | Agrawal  | Iriscourt      | Mumbai  | Maharashtra | 804198 |  9805643789 | rashmi@gmail.com |
+| Rahul     | Punewar  | NovaApartment  | Chennai | TamilNadu   | 678907 |  7890065432 | rp@gmail.com     |
+| Shashwat  | Agrawal  | DattaApartment | Pune    | Maharashtra | 341009 |  9880565434 | sp@gmail.com     |
++-----------+----------+----------------+---------+-------------+--------+-------------+------------------+
+3 rows in set (0.00 sec)

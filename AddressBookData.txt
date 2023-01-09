@@ -110,7 +110,7 @@ mysql> select * from AddressBook;
 ===========================================================
 -- UC5  Delete contact by using person's name
 ===========================================================
-mysql> delete from addressBook where lastname='Chedge';
+mysql> delete from addressBook where lastName='Chedge';
 Query OK, 1 row affected (0.01 sec)
 
 mysql> select * from AddressBook;
@@ -122,3 +122,15 @@ mysql> select * from AddressBook;
 | Shashwat  | Agrawal  | DattaApartment | Pune    | Maharashtra | 341009 |  9880565434 | sp@gmail.com     |
 +-----------+----------+----------------+---------+-------------+--------+-------------+------------------+
 3 rows in set (0.00 sec)
+
+===========================================================
+-- UC6 Retrieving the contact by city or state from addressbook
+===========================================================
+
+mysql> select * from AddressBook where city = 'Chennai' or State='TamilNadu';
++-----------+----------+---------------+---------+-----------+--------+-------------+--------------+
+| firstName | lastName | address       | city    | state     | zip    | phoneNumber | email        |
++-----------+----------+---------------+---------+-----------+--------+-------------+--------------+
+| Rahul     | Punewar  | NovaApartment | Chennai | TamilNadu | 678907 |  7890065432 | rp@gmail.com |
++-----------+----------+---------------+---------+-----------+--------+-------------+--------------+
+1 row in set (0.00 sec)

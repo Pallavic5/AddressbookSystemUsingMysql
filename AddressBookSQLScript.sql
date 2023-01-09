@@ -42,3 +42,6 @@ UPDATE addressbook SET phoneNumber=7890065432 where firstname='Rahul';
 /*UC 5 Ability to delete a person using person's name*/
 DELETE FROM `addressbookservice`.`addressbook` WHERE lastName='Chedge';
 SELECT * FROM AddressBook;
+
+/*UC 6 Ability to retrieve person belonging to a city or state from the address book*/
+select * from AddressBook where city = 'Chennai' or State='TamilNadu';

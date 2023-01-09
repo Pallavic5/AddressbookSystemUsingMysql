@@ -33,3 +33,8 @@ VALUES
  ('Rashmi', 'Agrawal','Iriscourt','Mumbai','Maharashtra', 804198, 9805643789,'rashmi@gmail.com'),
  ('Rahul', 'Punewar','NovaApartment','Chennai','TamilNadu', 678907, 7777856749,'rp@gmail.com'),
  ('Shashwat', 'Patel','DattaApartment','Pune','Maharashtra', 341009, 9880565434,'sp@gmail.com');
+ 
+ /*UC 4 Ability to edit existing contact person using their name.*/
+UPDATE `addressbookservice`.`addressbook` SET lastName='Agrawal' where firstname='Shashwat';
+SELECT * FROM AddressBook;
+UPDATE addressbook SET phoneNumber=7890065432 where firstname='Rahul';

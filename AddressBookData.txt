@@ -73,3 +73,36 @@ mysql> select * from AddressBook;
 | Shashwat  | Patel    | DattaApartment | Pune    | Maharashtra | 341009 |  9880565434 | sp@gmail.com     |
 +-----------+----------+----------------+---------+-------------+--------+-------------+------------------+
 4 rows in set (0.00 sec)
+
+===========================================================
+-- UC4  Editing existing contact by person's first name
+===========================================================
+mysql> update AddressBook set  lastName='Agrawal' where firstname='Shashwat';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from AddressBook;
++-----------+----------+----------------+---------+-------------+--------+-------------+------------------+
+| firstName | lastName | address        | city    | state       | zip    | phoneNumber | email            |
++-----------+----------+----------------+---------+-------------+--------+-------------+------------------+
+| Pallavi   | Chedge   | Lakewood       | Nagpur  | Maharashtra | 346789 |  8970065743 | pc@gmail.com     |
+| Rashmi    | Agrawal  | Iriscourt      | Mumbai  | Maharashtra | 804198 |  9805643789 | rashmi@gmail.com |
+| Rahul     | Punewar  | NovaApartment  | Chennai | TamilNadu   | 678907 |  7777856749 | rp@gmail.com     |
+| Shashwat  | Agrawal  | DattaApartment | Pune    | Maharashtra | 341009 |  9880565434 | sp@gmail.com     |
++-----------+----------+----------------+---------+-------------+--------+-------------+------------------+
+4 rows in set (0.00 sec)
+
+mysql> update addressbook set phoneNumber=7890065432 where firstname='Rahul';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from AddressBook;
++-----------+----------+----------------+---------+-------------+--------+-------------+------------------+
+| firstName | lastName | address        | city    | state       | zip    | phoneNumber | email            |
++-----------+----------+----------------+---------+-------------+--------+-------------+------------------+
+| Pallavi   | Chedge   | Lakewood       | Nagpur  | Maharashtra | 346789 |  8970065743 | pc@gmail.com     |
+| Rashmi    | Agrawal  | Iriscourt      | Mumbai  | Maharashtra | 804198 |  9805643789 | rashmi@gmail.com |
+| Rahul     | Punewar  | NovaApartment  | Chennai | TamilNadu   | 678907 |  7890065432 | rp@gmail.com     |
+| Shashwat  | Agrawal  | DattaApartment | Pune    | Maharashtra | 341009 |  9880565434 | sp@gmail.com     |
++-----------+----------+----------------+---------+-------------+--------+-------------+------------------+
+4 rows in set (0.00 sec)

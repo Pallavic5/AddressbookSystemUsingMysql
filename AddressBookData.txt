@@ -134,3 +134,39 @@ mysql> select * from AddressBook where city = 'Chennai' or State='TamilNadu';
 | Rahul     | Punewar  | NovaApartment | Chennai | TamilNadu | 678907 |  7890065432 | rp@gmail.com |
 +-----------+----------+---------------+---------+-----------+--------+-------------+--------------+
 1 row in set (0.00 sec)
+
+===================================================================================
+-- UC7 Understanding the size of addressbook by city and state - Here size indicates the count
+===================================================================================
+
+mysql> select count(firstname) from AddressBook where city = 'Mumbai';
++------------------+
+| count(firstname) |
++------------------+
+|                1 |
++------------------+
+1 row in set (0.01 sec)
+
+mysql> select count(firstname) from AddressBook where city = 'Nagpur';
++------------------+
+| count(firstname) |
++------------------+
+|                0 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select count(firstname) from AddressBook where city = 'Pune';
++------------------+
+| count(firstname) |
++------------------+
+|                1 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select count(firstname) from AddressBook where state='TamilNadu';
++------------------+
+| count(firstname) |
++------------------+
+|                1 |
++------------------+
+1 row in set (0.00 sec)

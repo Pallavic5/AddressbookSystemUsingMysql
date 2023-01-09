@@ -45,3 +45,9 @@ SELECT * FROM AddressBook;
 
 /*UC 6 Ability to retrieve person belonging to a city or state from the address book*/
 select * from AddressBook where city = 'Chennai' or State='TamilNadu';
+
+/*UC 7 Ability to understand the size of address book by city and state - Here size indicates the count*/
+select count(firstname) from AddressBook where city = 'Mumbai';
+select count(firstname) from AddressBook where city = 'Nagpur';
+select count(firstname) from AddressBook where city = 'Pune';
+select count(firstname) from AddressBook where state='TamilNadu';

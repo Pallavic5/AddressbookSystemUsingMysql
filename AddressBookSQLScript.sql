@@ -94,3 +94,8 @@ SELECT * FROM addressbook;
      
      INSERT INTO personcontacttype (`ContactTypeID`, `firstName`, `lastName`, `contactType`, `ID`)
      VALUES ('1', 'Vidya', 'Pawar', 'Family', '2'), ('2', 'Shikha', 'Patel', 'Friend', '3'), ('3', 'Shashwat', 'Chedge', 'Family', '1'),('4', 'Mayuri', 'Dhande', 'Profession', '4');
+     
+     /*UC 13 Ability to retrieve person belonging to a city or state from the addressbook*/ 
+     select count(firstname) from AddressBook where city = 'Mumbai' and contactType='Profession';
+     select firstname,city from AddressBook order by city;
+     select count(firstname) from AddressBook where state='TamilNadu';

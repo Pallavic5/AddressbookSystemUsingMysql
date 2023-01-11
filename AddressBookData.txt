@@ -381,3 +381,35 @@ mysql> INSERT INTO personcontacttype
     -> ('4', 'Mayuri', 'Dhande', 'Profession', '4');
 Query OK, 4 rows affected (0.01 sec)
 Records: 4  Duplicates: 0  Warnings: 0
+
+====================================================================
+-- UC13 Ability to retrieve person belonging to a city or state from the addressbook
+=====================================================================
+mysql> select count(firstname) from AddressBook where city = 'Mumbai' and contactType='Profession';
++------------------+
+| count(firstname) |
++------------------+
+|                1 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select firstname,city from AddressBook order by city;
++-----------+---------+
+| firstname | city    |
++-----------+---------+
+| Rahul     | Chennai |
+| Rashmi    | Mumbai  |
+| Smarani   | Mumbai  |
+| Pallavi   | Nagpur  |
+| Shashwat  | Pune    |
+| Ashwini   | Surat   |
++-----------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select count(firstname) from AddressBook where state='TamilNadu';
++------------------+
+| count(firstname) |
++------------------+
+|                1 |
++------------------+
+1 row in set (0.00 sec)

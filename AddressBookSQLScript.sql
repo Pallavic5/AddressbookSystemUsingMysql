@@ -72,3 +72,25 @@ SELECT count(firstname) FROM AddressBook WHERE contactType='Profession';
 INSERT INTO addressbook (firstName, lastName, address, city, state, zip, phoneNumber, email, addressbookName, contactType)
 VALUES ('Smarani','Sharma','LaxmiNagar','Mumbai','Maharashtra',603400,8876790543,'smarani@gmail.com','three','Family and Friend');
 SELECT * FROM addressbook;
+
+/*UC-12 Draw the ER Diagram for AddressBook Service DB*/
+ Create table city(cid int not null auto_increment, city varchar(50) not null, primary key(cid));
+ insert into city(city)values('Mumbai'),('Pune'),('Nagpur'),('Chennai'),('Hyderabad'),('Ahmedabad');
+ select * from city;
+ create table personcontact(id int not null, firstName varchar(50) not null, lastName varchar(50) not null, city int not null, primary key(id),
+    foreign key (city) References city(cid));
+    insert into personcontact(id, firstName, lastName, city) values(1, "Radha", "Rathore", 2),
+     (2, "Shruti", "Patel", 3),
+     (3, "Vrushabh", "Rai", 1),
+     (4, "Shilpa", "Sharma", 2);
+     
+     CREATE TABLE PersonContactType ( ContactTypeID int NOT NULL,
+     firstName varchar(50) not null,
+	 lastName varchar(50) not null,
+     contactType varchar(50) not null,
+     ID int,
+     PRIMARY KEY (ContactTypeID),
+     FOREIGN KEY (ID) REFERENCES addressbook(ID));
+     
+     INSERT INTO personcontacttype (`ContactTypeID`, `firstName`, `lastName`, `contactType`, `ID`)
+     VALUES ('1', 'Vidya', 'Pawar', 'Family', '2'), ('2', 'Shikha', 'Patel', 'Friend', '3'), ('3', 'Shashwat', 'Chedge', 'Family', '1'),('4', 'Mayuri', 'Dhande', 'Profession', '4');

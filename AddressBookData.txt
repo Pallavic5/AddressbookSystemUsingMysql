@@ -313,3 +313,71 @@ mysql> select * from addressbook;
 | Smarani   | Sharma   | LaxmiNagar     | Mumbai  | Maharashtra | 603400 |  8876790543 | smarani@gmail.com | three           | Family and Friend |
 +-----------+----------+----------------+---------+-------------+--------+-------------+-------------------+-----------------+-------------------+
 6 rows in set (0.00 sec)
+
+============================================================
+-- UC12 Draw the ER diagram for AddressBook Service Database
+=============================================================
+mysql> Create table city(
+    -> cid int not null auto_increment,
+    -> city varchar(50) not null,
+    ->  primary key(cid));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into city(city)values('Mumbai'),('Pune'),('Nagpur'),('Chennai'),('Hyderabad'),('Ahmedabad');
+Query OK, 6 rows affected (0.01 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> select * from city;
++-----+-----------+
+| cid | city      |
++-----+-----------+
+|   1 | Mumbai    |
+|   2 | Pune      |
+|   3 | Nagpur    |
+|   4 | Chennai   |
+|   5 | Hyderabad |
+|   6 | Ahmedabad |
++-----+-----------+
+6 rows in set (0.00 sec)
+
+mysql> create table personcontact(
+    -> id int not null,
+    -> firstName varchar(50) not null,
+    -> lastName varchar(50) not null,
+    -> city int not null,
+    -> primary key(id),
+    -> foreign key (city) References city(cid));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into personcontact(id, firstName, lastName, city)
+    -> values(1, "Radha", "Rathore", 2),
+    -> (2, "Shruti", "Patel", 3),
+    -> (3, "Vrushabh", "Rai", 1),
+    -> (4, "Shilpa", "Sharma", 2);
+Query OK, 4 rows affected (0.02 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> CREATE TABLE PersonContactType (
+    ->     ContactTypeID int NOT NULL,
+    ->     firstName varchar(50) not null,
+    ->     lastName varchar(50) not null,
+    ->     contactType varchar(50) not null,
+    ->     ID int,
+    ->     PRIMARY KEY (ContactTypeID),
+    ->     FOREIGN KEY (ID) REFERENCES addressbook(ID)
+    -> );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> INSERT INTO personcontacttype
+    -> (`ContactTypeID`,
+    -> `firstName`,
+    -> `lastName`,
+    -> `contactType`,
+    -> `ID`)
+    -> VALUES
+    -> ('1', 'Vidya', 'Pawar', 'Family', '2'),
+    -> ('2', 'Shikha', 'Patel', 'Friend', '3'),
+    -> ('3', 'Shashwat', 'Chedge', 'Family', '1'),
+    -> ('4', 'Mayuri', 'Dhande', 'Profession', '4');
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
